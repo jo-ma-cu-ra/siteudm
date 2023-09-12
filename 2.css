@@ -1,0 +1,81 @@
+.séniores-carrossel {
+    position: relative;
+    height: 440px;
+    width:45%;
+    margin: 120px auto;
+}
+
+.séniores-carrossel__image {
+    width:100%;
+    height:100%;
+    object-fit: cover;
+}
+
+.séniores-carrossel__track-container {
+    height:100%;
+    position:relative;
+    overflow: hidden;
+}
+
+.séniores-carrossel__track{
+    padding: 0;
+    margin:0;
+    list-style: none;
+    position: relative;
+    height: 100%;
+    transition: transform 500ms ease-in-out;
+}
+
+.séniores-carrossel__slide{
+    position:absolute;
+    top:0;
+    bottom:0;
+    width:100%;
+}
+
+.séniores-carrossel__botão{
+    position:absolute;
+    top:50%;
+    transform: translateY(-50%);
+    background: rgb(225, 225, 225,0.25);
+    border: 0;
+    cursor:pointer;
+    height:100%;
+}
+
+
+.séniores-carrossel__botão--esquerda{
+    left: 0px;
+    color: #fff;
+}
+
+.séniores-carrossel__botão--direita{
+    right:0px;
+    color: #fff;
+}
+
+.séniores-carrossel__nav{
+    display:flex;
+    justify-content:center;
+    padding:10px 0;
+    margin-top: -40px;
+    position: relative;
+}
+
+.séniores-carrossel__indicator{
+    border:0;
+    border-radius:50%;
+    width:15px;
+    height:15px;
+    background:rgba(255, 255, 255, 0.5);
+    margin: 0 12px;
+    cursor: pointer;
+}
+
+.séniores-carrossel__indicator.séniores-slide-atual {
+    background: rgb(255, 255, 255);
+}
+
+.is-hidden{
+    display: none;
+}
