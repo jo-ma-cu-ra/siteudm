@@ -18,12 +18,12 @@ document.addEventListener("DOMContentLoaded", function () {
         // Loop through all the pages on your website
         // Replace the following with actual page titles, content, and href attributes
         const pages = [
-            { title: "História da UDM", content: "Um pequeno clube com uma grande história União Desportiva Messinense, também conhecida como UDM, é um clube português fundado em 1975. O clube encontra-se em São Bartolomeu de Messines e tem os seus treinos no estádio municipal. Atualmente, o seu presidente é Hélder Brás e o presidente da assembleia é ....A 25 de abril de 2008 a UDM conquistou a Taça do Algarve pela primeira vez. Dois anos depois, na época 2009-2010, alcançou o título de campeão do Algarve (AF Algarve). Esta vitória permitiu o clube a subir à 3ª Divisão Nacional.", href: "https://www.uniaodesportivamessinense.pt/hist%C3%B3ria.html" },
-            { title: "Órgãos Sociais", content: "Mesa da Assembleia Geral Direção Mesa da Assembleia Geral", href: "https://www.uniaodesportivamessinense.pt/%C3%B3rg%C3%A3ossociais.html" },
-            { title: "Notícias", content: "Inserir mini texto da noticia aqui Título Ver Mais", href: "https://www.uniaodesportivamessinense.pt/not%C3%ADcias.html" },
-            { title: "Notícias Base", content: "Lead da notícia Corpo da noticia", href: "https://www.uniaodesportivamessinense.pt/noticiabase.html" },
-            { title: "Séniores", content: "Nome posição Último Resultado", href: "https://www.uniaodesportivamessinense.pt/s%C3%A9niores.html" },
-            { title: "Formação", content: "equipa horário treinador", href: "https://www.uniaodesportivamessinense.pt/forma%C3%A7%C3%A3o.html" },
+            { title: "História da UDM", content: "Um pequeno clube com uma grande história União Desportiva Messinense, também conhecida como UDM, é um clube português fundado em 1975. O clube encontra-se em São Bartolomeu de Messines e tem os seus treinos no estádio municipal. Atualmente, o seu presidente é Hélder Brás e o presidente da assembleia é ....A 25 de abril de 2008 a UDM conquistou a Taça do Algarve pela primeira vez. Dois anos depois, na época 2009-2010, alcançou o título de campeão do Algarve (AF Algarve). Esta vitória permitiu o clube a subir à 3ª Divisão Nacional.", URL: "https://www.uniaodesportivamessinense.pt/hist%C3%B3ria.html" },
+            { title: "Órgãos Sociais", content: "Mesa da Assembleia Geral Direção Mesa da Assembleia Geral", URL: "https://www.uniaodesportivamessinense.pt/%C3%B3rg%C3%A3ossociais.html" },
+            { title: "Notícias", content: "Inserir mini texto da noticia aqui Título Ver Mais", URL: "https://www.uniaodesportivamessinense.pt/not%C3%ADcias.html" },
+            { title: "Notícias Base", content: "Lead da notícia Corpo da noticia", URL: "https://www.uniaodesportivamessinense.pt/noticiabase.html" },
+            { title: "Séniores", content: "Nome posição Último Resultado", URL: "https://www.uniaodesportivamessinense.pt/s%C3%A9niores.html" },
+            { title: "Formação", content: "equipa horário treinador", URL: "https://www.uniaodesportivamessinense.pt/forma%C3%A7%C3%A3o.html" },
 
         ];
 
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (page.title.toLowerCase().includes(query) || page.content.toLowerCase().includes(query)) {
                 const listItem = document.createElement("li");
                 const link = document.createElement("a");
-                link.href = page.href; // Use the href attribute as the page URL
+                link.URL = page.URL; // Use the href attribute as the page URL
                 link.textContent = page.title;
                 listItem.appendChild(link);
                 searchResults.appendChild(listItem);
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 link.addEventListener("click", function (event) {
                     event.preventDefault(); // Prevent the default link behavior (page navigation)
                     // Redirect to the page URL
-                    window.location.href = page.href;
+                    window.location.URL = page.URL;
                 });
             }
         });
