@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamburger Menu with Dropdowns</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        header{
+            background-color: #1e1e1e;
+        }
+
+        .navbar-2 li{
+            list-style: none;
+        }
+
+        .navbar-2 a{
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-item{
+            width: 160px;
+            text-align: center;
+            height: 32px;
+            margin-top: 13px;
+            border: none;
+            height: 26px;
+            color: #e1e1e1;
+            font-size: 16px;
+            font-family: "Inter",sans-serif;
+            letter-spacing: 1.2px;
+            cursor:default;
+            text-align: center;
+            padding-top: 6px;
+        }
+
+        .dropbtn{
+            color: white;
+            text-decoration: none;
+        }
+        .dropdown-content{
+            display: none;
+            position: absolute;
+            background-color: #ff0;
+            min-width: 160px;
+            z-index: 1;
+            margin-top: 7px;
+        }
+        .dropdown-content a {
+            color: #1e1e1e;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-family: 'Inter',sans-serif;
+            letter-spacing: 0.6px;
+        }
+        .nav-item:hover .dropdown-content {
+            display: block;
+        }
+
+        .navbar-2{
+            align-items: center;
+            padding: 0 24px;
+            height: 32px;
+            background-color: #1e1e1e;
+            margin-top: 0;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+        }
+
+        .nav-menu{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-link{
+            width: 160px;
+            transition: 0.7s ease;
+        }
+
+        .hamburguer{
+            display:none;
+            cursor:pointer;
+        }
+
+        .bar{
+            display:block;
+            width:25px;
+            height:3px;
+            margin:5px auto;
+            -webkit-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+            background-color: #ff0;
+        }
+        
+
+        @media (max-width:768px) {
+            .navbar-2{
+                display: flex;
+                justify-content: right;
+            }
+            .hamburguer{
+                display:block;
+            }
+            .hamburguer.active .bar:nth-child(2){
+                opacity:0;
+            }
+            .hamburguer.active .bar:nth-child(1){
+                transform: translateY(8px) rotate(45deg);
+            }
+            .hamburguer.active .bar:nth-child(3){
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            .nav-menu{
+                position: fixed;
+                left:-100%;
+                top: 32px;
+                gap:0;
+                flex-direction: column;
+                background-color: #1e1e1e;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+            }
+            .nav-item{
+                margin:16px 0;
+            }
+            .nav-menu.active{
+                left:0;
+            }
+            .dropbtn{
+                color: white;
+                text-decoration: none;
+            }
+            .navbar-2.dropdown-content{
+                display: none;
+                position: absolute;
+                background-color: #ff0;
+                z-index: 1;
+                left: 0px;
+            }
+            .navbar-2.dropdown-content a {
+                color: #1e1e1e;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                font-family: 'Inter',sans-serif;
+                letter-spacing: 0.6px;
+            }
+            .navbar-2.nav-item.dropdown-content.show{
+                display: block;
+            }
+        }
+
+    </style>
+</head>
+<header>
+    <div class="navbar-2">
+    <ul class="nav-menu">
+        <li class="nav-item">
+           <div class="dropbtn">UDM</div>
+             <div class="dropdown-content">
+                <a href="história.html">História</a>
+                <a href="órgãossociais.html">Órgãos Sociais</a>
+                <div class="is-hidden"><a href="#">Palmarés</a></div>
+             </div>
+        </li>
+        <li class="nav-item">
+        <a href="#" class="nav-link">notícias</a>
+        </li>
+        <li class="nav-item">
+            <div class="dropbtn">futebol</div>
+            <div class="dropdown-content">
+                <a href="séniores.html">Séniores</a>
+                <a href="formação.html">Formação</a>
+                <div class="is-hidden"><a href="#">Veteranos</a></div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <div class="dropbtn">modalidades</div>
+            <div class="dropdown-content">
+                <div class="dropdown-content-3">
+                    <a href="#">Ginástica</a>
+                    <a href="#">Zumba</a>
+                 </div>
+            </div>
+        </li>
+    </ul>
+    <div class="hamburguer">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+    </div>
+</div>
+</header>
+<script>
+    const hamburguer = document.querySelector('.hamburguer');
+    const navMenu =document.querySelector('.nav-menu');
+    const dropdown = document.querySelector('.dropdown-content');
+
+    hamburguer.addEventListener('click', () => {
+        hamburguer.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    })
+
+    dropdownShow.addEventListener('click', () => {
+        dropdown.classList.toggle('show');
+    })
+</script>
+<body>
+ 
+</body>
+</html>

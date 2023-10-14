@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <title>Notícias</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .is-hidden{
+            display: none;
+        }
+
+        .noticia-seccao{
+            position: relative;
+            justify-items: center;
+            display: flex;
+            flex-direction: column;
+            width:65%;
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .lead-noticia{
+            color: #00903C;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            height:auto;
+            margin-top: 20px;
+            position: relative;
+            text-wrap:wrap;
+        }
+
+        .corpo-noticia{
+            color: #000;
+            text-align: justify;
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            letter-spacing: 1px;
+            text-indent: 30px;
+            position: relative;
+            margin-top: 5px;
+        }
+
+        .noticia-img img{
+            height:370px;
+            width:90%;
+            position: relative;
+            object-fit:cover;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .informação-autor{
+            height: auto;
+            display: flex;
+            justify-items: center;
+            flex-direction: column;
+            margin-top: 10px;
+            margin-bottom: 40px;
+        }
+
+        .foto-autor img{
+            height:65px;
+            width: 65px;
+            position: relative;
+            border-radius: 50%;
+            object-fit: cover;
+            border-color: #00000017;
+            border-width: 1px;
+            border-style: outset;
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .nome-data-autor{
+            margin-left: 50%;
+            transform: translateX(-50%);
+            color: #000;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            letter-spacing: 2.5px;
+            margin-top: 10px;
+            cursor: default;
+        }
+
+        @media (max-width:767px) {
+            .noticia-seccao{
+                position: relative;
+                justify-items: center;
+                display: flex;
+                flex-direction: column;
+                width:85%;
+                margin-left: 50%;
+                transform: translateX(-50%);
+            }
+            .lead-noticia{
+                color: #00903C;
+                text-align: center;
+                font-family: 'Inter', sans-serif;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                letter-spacing: 4px;
+                text-transform: uppercase;
+                height:auto;
+                margin-top: 20px;
+                position: relative;
+                text-wrap:wrap;
+            }
+            .corpo-noticia{
+                color: #000;
+                text-align: justify;
+                font-family: 'Inter', sans-serif;
+                font-size: 17px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                letter-spacing: 1px;
+                text-indent: 30px;
+                position: relative;
+                margin-top: 5px;
+                line-height: 23px;
+            }
+            .noticia-img img{
+                height:280px;
+                width:100%;
+                position: relative;
+                object-fit:cover;
+                margin-top: 20px;
+                display: flex;
+                justify-content: center;
+                margin-left: 50%;
+                transform: translateX(-50%);
+            }
+            .informação-autor{
+                height: auto;
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                margin-top: 10px;
+            }
+            .foto-autor img{
+                height:65px;
+                width: 65px;
+                position: relative;
+                border-radius: 50%;
+                object-fit: cover;
+                border-color: #00000017;
+                border-width: 1px;
+                border-style: outset;
+            }
+            .informação-autor .nome-data-autor{
+                color: #000;
+                text-align: left;
+                font-family: 'Inter', sans-serif;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                letter-spacing: 2.5px;
+                margin-top: 10px;
+                cursor: default;
+                margin-left: 40px;
+                margin-top: -5px;
+            }
+        }
+    
+    </style>
+  </head>
+  <header>
+    
+    <div class="navbar">
+        <button class="icon-search" id="icon-search" onclick="toggleElement()"><img src="icons/search-icon-2.png"></button>
+        <div class="search-overlay" id="search-overlay"></div>
+        <div class="search-container" id="search-container">
+            <input type="text" id="search-input" placeholder="Search...">
+            <ul id="search-results" style="display: none;"></ul>
+        </div>       
+        <script src="search.js"></script>
+        <script>
+            const showButton = document.getElementById('icon-search');
+            const elementToShow = document.getElementById('search-container');
+            const overlay = document.getElementById('search-overlay');
+            const searchIcon = document.querySelector('.icon-search img');
+        
+            // Function to toggle the search container and overlay
+            function toggleSearchContainer() {
+                if (elementToShow.style.display === 'none' || elementToShow.style.display === '') {
+                    elementToShow.style.display = 'block';
+                    overlay.style.display = 'block';
+                    searchIcon.style.display = 'none';
+                } else {
+                    elementToShow.style.display = 'none';
+                    overlay.style.display = 'none';
+                    searchIcon.style.display = 'block';
+                }
+            }
+        
+            // Add a click event listener to the 'icon-search' button
+            showButton.addEventListener('click', function (event) {
+                // Prevent the click event from propagating to the document
+                event.stopPropagation();
+                toggleSearchContainer();
+            });
+        
+            // Add a click event listener to the document to close the search container and overlay
+            document.addEventListener('click', function (event) {
+                // Check if the click target is not within the search container
+                if (!elementToShow.contains(event.target) && elementToShow.style.display === 'block') {
+                    elementToShow.style.display = 'none';
+                    overlay.style.display = 'none';
+                    searchIcon.style.display = 'block';
+                }
+            });
+        </script>
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+        </div>
+        <div class="nav-button is-hidden">
+            <a href="#button" class="nav-button"> <i>ASSOCIA-TE</i> </a>
+        </div>
+        <div class="slogan">
+            <p>#Mais Que Um Clube</p>
+        </div>
+    </div>
+    <div class="navbar-2">
+        <ul class="nav-menu">
+            <li class="nav-item">
+               <div class="dropbtn">UDM</div>
+                 <div class="dropdown-content">
+                    <a href="história.html">História</a>
+                    <a href="órgãossociais.html">Órgãos Sociais</a>
+                    <div class="is-hidden"><a href="#">Palmarés</a></div>
+                 </div>
+            </li>
+            <li class="nav-item">
+            <a href="notícias.html" class="nav-link">notícias</a>
+            </li>
+            <div class="nav-item-empty" ></div>
+            <li class="nav-item">
+                <div class="dropbtn">futebol</div>
+                <div class="dropdown-content">
+                    <a href="séniores.html">Séniores</a>
+                    <a href="formação.html">Formação</a>
+                    <div class="is-hidden"><a href="#">Veteranos</a></div>
+                </div>
+            </li>
+            <li class="nav-item is-hidden">
+                <div class="dropbtn">modalidades</div>
+                <div class="dropdown-content">
+                        <a href="#">Ginástica</a>
+                        <a href="#">Zumba</a>
+                </div>
+            </li>
+            <div class="nav-item-empty" ></div>
+        </ul>
+        <div class="hamburguer">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        </div>
+    </div>
+    <script src="menu.js"></script>
+</header>
+<body>
+    <div class="titulo-páginas">título da notícia</div>
+    <div class="noticia-seccao">   
+        <div class="lead-noticia">Lead da notícia Lead da notícia Lead da notícia v Lead da notícia Lead da notícia Lead da notícia Lead da notícia Lead da notícia Lead da notícia Lead da notícia Lead da notícia Lead da notícia Lead da notícia Lead da notícia Lead da notícia Lead da notíciaLead da notícia</div>
+        <div class="noticia-img"><img src="images/semimagem.png"></div>
+        <div class="corpo-noticia"> <p>Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia</p>
+            <p>Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia Corpo da noticia</p>
+        </div>
+        <div class="informação-autor">
+            <div class="foto-autor"><img src="images/semfoto.png"></div>
+            <div class="nome-data-autor">NOME<br><i>data</i></div>
+        </div>
+    </div>
+    <section>
+        <div class="patrocinadores">
+            <div class="patrocinadores-titulo">PATROCINADORES</div>
+            <div class="patrocinadores-slider">
+                <div class="patrocinadores-slide-track">
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-cms.png" height="35px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-freguesiademessines.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-algarvepaintstore.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-estudantina.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-frutasmartinho.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-gsbarber.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-sedibraz.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-mmdetails.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-fatinha.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-pspublicidade.png" height="45px" width="auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="seccao-rodape">
+        <div class="rodape">
+            <div class="redes-sociais">
+            <div class="facebook-botão">
+                <a href="https://pt-pt.facebook.com/uniaodesportiva.messinense/"><img src="icons/facebook.png" height="30px" alt="icon facebook" class="facebook"></a>
+            </div>
+            <div class="instagram-botão">
+                <a href="https://www.instagram.com/udm.1975/"><img src="icons/instagram.png" height="30px" alt="icon instagram" class="instagram"></a>
+            </div>
+        </div>
+        </div>
+        <div class="direitos"> 2023 © UNIÃO DESPORTIVA MESSINENSE - desenvolvido por Joana C. R.</div>
+        <div class="contactos"> <p>8375-000<br>
+            Rua Antónia Cabrita Pires, S. B. Messines, Silves<br><br><br>
+            967 779 321<br>
+            u.d.messinense@mail.telepac.pt</p>   
+        </div>
+    </footer>
+</body>
+</html>

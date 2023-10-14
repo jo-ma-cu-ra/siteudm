@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <title>Notícias</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .is-hidden{
+            display: none;
+        }
+
+        .noticias-caixa{
+            height:250px;
+            width: 75%;
+            border-radius: 32px;
+            background: rgba(30, 30, 30, 0.20);
+            position: relative;
+            margin-left:13%;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        .noticias-caixa:hover{
+            background: rgba(255, 255, 0, 0.20);
+        }
+
+        .noticias-caixa-imagem img{
+            height:180px;
+            width:25%;
+            object-fit: cover;
+            margin-top: 35px;
+            margin-left: 35px;
+            border-color: #00000017;
+            border-width: 1px;
+            border-style: outset;
+        }
+        
+        .noticias-caixa-titulo a{
+            color:#00903c;
+            position: absolute;
+            font-family: 'Inter',sans-serif;
+            font-size: 30px;
+            font-style: normal;
+            font-weight: 800;
+            line-height: normal;
+            letter-spacing: 0.8px;
+            text-decoration: none;
+            margin-top: -185px;
+            margin-left: 30%;
+        }
+
+        .noticias-caixa-autor img{
+            height:65px;
+            width: 65px;
+            margin-top: -200px;
+            position: absolute;
+            margin-left: 92%;
+            border-radius: 50%;
+            object-fit: cover;
+            border-color: #00000017;
+            border-width: 1px;
+            border-style: outset;
+        }
+
+        .noticias-caixa-data{
+            color: #1E1E1E;
+            font-family: 'Inter',sans-serif;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            letter-spacing: 0.48px;
+            position: relative;
+            margin-top: -150px;
+            margin-left: 30%;
+            cursor: default;
+        }
+
+        .noticias-caixa-preview{
+            width: 67%;
+            color: #000;
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 450;
+            line-height: 25px;
+            letter-spacing: 0.72px;
+            position: relative;
+            margin-left: 30%;
+            cursor: default;
+        }
+
+        .noticias-caixa-ver-mais{
+            text-align: right;
+            width: 66%;
+            margin-left: 30%;
+            margin-top: -5px;
+        }
+
+        .noticias-caixa-ver-mais a{
+            color: #000;
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 450;
+            line-height: 25px;
+            letter-spacing: 0.72px;
+            position: relative;
+        }
+
+        .noticias-caixa-ver-mais a:hover{
+            color: #00903c;
+        }
+
+        @media (max-width:767px) {
+            .noticias-caixa{
+                height:auto;
+                width: 75%;
+                border-radius: 32px;
+                background: rgba(30, 30, 30, 0.20);
+                position: relative;
+                margin-left:13%;
+                margin-top: 20px;
+                margin-bottom: 30px;
+                display: flex;
+                flex-direction: column;
+            }
+            .noticias-caixa:hover{
+                background: rgba(255, 255, 0, 0.20);
+            }
+            .noticias-caixa-imagem img{
+                height:180px;
+                width:92%;
+                object-fit: cover;
+                margin-top: 35px;
+                margin-left: 4%;
+                border-color: #00000017;
+                border-width: 1px;
+                border-style: outset;
+            }
+            .noticias-caixa-titulo a{
+                color:#00903c;
+                position: absolute;
+                font-family: 'Inter',sans-serif;
+                font-size: 30px;
+                font-style: normal;
+                font-weight: 800;
+                line-height: normal;
+                letter-spacing: 0.8px;
+                text-decoration: none;
+                margin-top: 0px;
+                margin-left: 4%;
+            }
+            .noticias-caixa .noticias-caixa-autor{
+                order: 5;    
+                margin-bottom: 15px;            
+            }
+            .noticias-caixa-autor img{
+                height:65px;
+                width: 65px;
+                margin-top: -60px;
+                position: absolute;
+                right:10px;
+                border-radius: 50%;
+                object-fit: cover;
+                border-color: #00000017;
+                border-width: 1px;
+                border-style: outset;
+            }
+            .noticias-caixa-data{
+                color: #1E1E1E;
+                font-family: 'Inter',sans-serif;
+                font-size: 15px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                letter-spacing: 0.48px;
+                position: relative;
+                margin-top: 40px;
+                margin-left: 4%;
+                cursor: default;
+            }
+            .noticias-caixa-preview{
+                width: 92%;
+                color: #000;
+                font-family: 'Inter', sans-serif;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 450;
+                line-height: 25px;
+                letter-spacing: 0.72px;
+                position: relative;
+                margin-left: 4%;
+                cursor: default;
+            }
+            .noticias-caixa .noticias-caixa-ver-mais{
+                text-align: left;
+                width: 92%;
+                margin-left: 6%;
+                margin-top:40px;
+            }
+            .noticias-caixa-ver-mais a{
+                color: #000;
+                font-family: 'Inter', sans-serif;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 450;
+                line-height: 25px;
+                letter-spacing: 0.72px;
+                position: relative;
+            }
+            .noticias-caixa-ver-mais a:hover{
+                color: #00903c;
+            }
+        }
+    </style>
+  </head>
+  <header>
+    
+    <div class="navbar">
+        <button class="icon-search" id="icon-search" onclick="toggleElement()"><img src="icons/search-icon-2.png"></button>
+        <div class="search-overlay" id="search-overlay"></div>
+        <div class="search-container" id="search-container">
+            <input type="text" id="search-input" placeholder="Search...">
+            <ul id="search-results" style="display: none;"></ul>
+        </div>       
+        <script src="search.js"></script>
+        <script>
+            const showButton = document.getElementById('icon-search');
+            const elementToShow = document.getElementById('search-container');
+            const overlay = document.getElementById('search-overlay');
+            const searchIcon = document.querySelector('.icon-search img');
+        
+            // Function to toggle the search container and overlay
+            function toggleSearchContainer() {
+                if (elementToShow.style.display === 'none' || elementToShow.style.display === '') {
+                    elementToShow.style.display = 'block';
+                    overlay.style.display = 'block';
+                    searchIcon.style.display = 'none';
+                } else {
+                    elementToShow.style.display = 'none';
+                    overlay.style.display = 'none';
+                    searchIcon.style.display = 'block';
+                }
+            }
+        
+            // Add a click event listener to the 'icon-search' button
+            showButton.addEventListener('click', function (event) {
+                // Prevent the click event from propagating to the document
+                event.stopPropagation();
+                toggleSearchContainer();
+            });
+        
+            // Add a click event listener to the document to close the search container and overlay
+            document.addEventListener('click', function (event) {
+                // Check if the click target is not within the search container
+                if (!elementToShow.contains(event.target) && elementToShow.style.display === 'block') {
+                    elementToShow.style.display = 'none';
+                    overlay.style.display = 'none';
+                    searchIcon.style.display = 'block';
+                }
+            });
+        </script>
+        <script src="search.js"></script>
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+        </div>
+        <div class="nav-button is-hidden">
+            <a href="#button" class="nav-button"> <i>ASSOCIA-TE</i> </a>
+        </div>
+        <div class="slogan">
+            <p>#Mais Que Um Clube</p>
+        </div>
+    </div>
+
+    <div class="navbar-2">
+        <ul class="nav-menu">
+            <li class="nav-item">
+               <div class="dropbtn">UDM</div>
+                 <div class="dropdown-content">
+                    <a href="história.html">História</a>
+                    <a href="órgãossociais.html">Órgãos Sociais</a>
+                    <div class="is-hidden"><a href="#">Palmarés</a></div>
+                 </div>
+            </li>
+            <li class="nav-item">
+            <a href="notícias.html" class="nav-link">notícias</a>
+            </li>
+            <div class="nav-item-empty" ></div>
+            <li class="nav-item">
+                <div class="dropbtn">futebol</div>
+                <div class="dropdown-content">
+                    <a href="séniores.html">Séniores</a>
+                    <a href="formação.html">Formação</a>
+                    <div class="is-hidden"><a href="#">Veteranos</a></div>
+                </div>
+            </li>
+            <li class="nav-item is-hidden">
+                <div class="dropbtn">modalidades</div>
+                <div class="dropdown-content">
+                        <a href="#">Ginástica</a>
+                        <a href="#">Zumba</a>
+                </div>
+            </li>
+            <div class="nav-item-empty" ></div>
+        </ul>
+        <div class="hamburguer">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        </div>
+    </div>
+    <script src="menu.js"></script>
+</header>
+<body>
+    <div class="titulo-páginas"> notícias</div>
+    <div class="noticias-caixa">
+        <div class="noticias-caixa-imagem"><img src="images/347005777_558044439866734_1229308529580571460_n.jpg"></div>
+        <div class="noticias-caixa-autor"><img src="images/semfoto.png"></div>
+        <div class="noticias-caixa-titulo"><a href="nãofaltouotoy.html">Não faltou o Toy!</a></div>
+        <div class="noticias-caixa-data"><i>data</i></div>
+        <div class="noticias-caixa-preview">A UDM organizou, nos dias 7, 8, 9 e 10 de junho, a 8ª edição da Festa do Caracol no Parque de Feiras e Exposições. Esta edição contou com artistas de renome como o Toy, a Brasa Doirada, entre outros, o que levou à dinamização da vida cultural da vila.</div>
+        <div class="noticias-caixa-ver-mais"><a href="nãofaltouotoy.html">Ver Mais</a></div>
+    </div>
+    
+    <div class="noticias-caixa is-hidden">
+        <div class="noticias-caixa-imagem"><img src="images/semimagem.png"></div>
+        <div class="noticias-caixa-autor"><img src="images/semfoto.png"></div>
+        <div class="noticias-caixa-titulo"><a href="#">Título</a></div>
+        <div class="noticias-caixa-data"><i>data</i></div>
+        <div class="noticias-caixa-preview">Inserir mini texto da noticia aqui Inserir mini texto da noticia aqui Inserir mini texto da noticia aqui Inserir mini texto da noticia aqui Inserir mini texto da noticia aqui Inserir mini texto da noticia aqui Inserir mini texto da noticia aqui Inserir mini texto da noticia aqui Inserir mini texto da noticia aqui Inserir mini texto da noticia aqui Inserir mini texto da noticia aqui</div>
+        <div class="noticias-caixa-ver-mais"><a href="#">Ver Mais</a></div>
+        </div>
+    </div>
+       
+    <section>
+        <div class="patrocinadores">
+            <div class="patrocinadores-titulo">PATROCINADORES</div>
+            <div class="patrocinadores-slider">
+                <div class="patrocinadores-slide-track">
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-cms.png" height="35px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-freguesiademessines.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-algarvepaintstore.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-estudantina.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-frutasmartinho.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-gsbarber.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-sedibraz.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-mmdetails.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-fatinha.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-pspublicidade.png" height="45px" width="auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="seccao-rodape">
+        <div class="rodape">
+            <div class="redes-sociais">
+            <div class="facebook-botão">
+                <a href="https://pt-pt.facebook.com/uniaodesportiva.messinense/"><img src="icons/facebook.png" height="30px" alt="icon facebook" class="facebook"></a>
+            </div>
+            <div class="instagram-botão">
+                <a href="https://www.instagram.com/udm.1975/"><img src="icons/instagram.png" height="30px" alt="icon instagram" class="instagram"></a>
+            </div>
+        </div>
+        </div>
+        <div class="direitos"> 2023 © UNIÃO DESPORTIVA MESSINENSE - desenvolvido por Joana C. R.</div>
+        <div class="contactos"> <p>8375-000<br>
+            Rua Antónia Cabrita Pires, S. B. Messines, Silves<br><br><br>
+            967 779 321<br>
+            u.d.messinense@mail.telepac.pt</p>   
+        </div>
+    </footer>
+</body>
+</html>
