@@ -1,9 +1,11 @@
-       
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
 }
 
+html, body{
+       overflow-x: hidden;
+}
 
 /*menu*/
 .navbar {
