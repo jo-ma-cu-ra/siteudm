@@ -433,6 +433,7 @@ body {
     .navbar-2{
         display: flex;
         justify-content: right;
+        overflow-x: hidden;
     }
     .hamburguer{
         display:block;
