@@ -3,19 +3,6 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-body.modal-open {
-    overflow: hidden;
-    position: fixed;
-}
-body.viewport-lg {
-    position: absolute; 
-}
-body {
-    overflow-x: hidden;
-    overflow-y: scroll !important;
-}
-
-
 /*menu*/
 .navbar {
     background-color: #00903c;
