@@ -3,19 +3,18 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-@media (max-width:767px){
-    body.modal-open {
-        overflow: hidden;
-        position: fixed;
-    }
-    body.viewport-lg {
-        position: absolute; 
-    }
-    body {
-        overflow-x: hidden;
-        overflow-y: scroll !important;
-    }
+body.modal-open {
+    overflow: hidden;
+    position: fixed;
 }
+body.viewport-lg {
+    position: absolute; 
+}
+body {
+    overflow-x: hidden;
+    overflow-y: scroll !important;
+}
+
 
 /*menu*/
 .navbar {
