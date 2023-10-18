@@ -3,6 +3,12 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
+@media (max-width:767px){
+    body{
+        overflow-x: hidden;
+    }
+}
+
 /*menu*/
 .navbar {
     background-color: #00903c;
