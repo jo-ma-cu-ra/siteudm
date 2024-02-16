@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <title>História da UDM</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon.ico?">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .is-hidden{
+            display: none;
+        }
+        
+        .texto-contactos{
+            color: #1E1E1E;
+            font-family: Inter;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%;
+            letter-spacing: 2px;
+            width: 500px;
+            height: 385px;
+            margin-left: 12%;
+            margin-top: 100px;
+            cursor: default;
+        }
+        .texto-contactos a{
+            color: #1E1E1E;
+            text-decoration: none;
+        }
+        .texto-contactos a:hover{
+            color: #00903c;
+            text-decoration: none;
+        }
+
+        .imagem-história-container{
+            position: relative;
+            margin-top:-435px;
+            margin-left: 49%;
+            height:400px;
+            width:45%;
+            margin-bottom: 50px;
+        }
+
+        .imagem-história{
+            object-fit:cover;
+            align-self: center;
+            height:100%;
+            width:100%;
+        }
+
+        @media (max-width:767px) {
+            .texto-contactos{
+                color: #1E1E1E;
+                font-family: Inter;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: 2px;
+                width: 85%;
+                height: auto;
+                margin-left: 6%;
+                margin-top: 20px;
+                cursor: default;
+                padding: 0 10px;
+                text-align: center;
+            }
+            .texto-contactos a{
+                color: #1E1E1E;
+                text-decoration: none;
+            }
+            .imagem-história-container{
+                position: relative;
+                margin-top:20px;
+                margin-left: 50%;
+                transform: translateX(-50%);
+                height:400px;
+                width:80%;
+                margin-bottom: 50px;
+            }
+            .imagem-história{
+                object-fit:cover;
+                align-self: center;
+                height:100%;
+                width:100%;
+            }
+        }
+
+    </style>
+  </head>
+  <header>
+    <div class="navbar">
+        <button class="icon-search" id="icon-search" onclick="toggleElement()"><img src="icons/search-icon-2.png"></button>
+        <div class="search-overlay" id="search-overlay"></div>
+        <div class="search-container" id="search-container">
+            <input type="text" id="search-input" placeholder="Search...">
+            <ul id="search-results" style="display: none;"></ul>
+        </div>       
+        <script src="search.js"></script>
+        <script>
+            const showButton = document.getElementById('icon-search');
+            const elementToShow = document.getElementById('search-container');
+            const overlay = document.getElementById('search-overlay');
+            const searchIcon = document.querySelector('.icon-search img');
+        
+            // Function to toggle the search container and overlay
+            function toggleSearchContainer() {
+                if (elementToShow.style.display === 'none' || elementToShow.style.display === '') {
+                    elementToShow.style.display = 'block';
+                    overlay.style.display = 'block';
+                    searchIcon.style.display = 'none';
+                } else {
+                    elementToShow.style.display = 'none';
+                    overlay.style.display = 'none';
+                    searchIcon.style.display = 'block';
+                }
+            }
+        
+            // Add a click event listener to the 'icon-search' button
+            showButton.addEventListener('click', function (event) {
+                // Prevent the click event from propagating to the document
+                event.stopPropagation();
+                toggleSearchContainer();
+            });
+        
+            // Add a click event listener to the document to close the search container and overlay
+            document.addEventListener('click', function (event) {
+                // Check if the click target is not within the search container
+                if (!elementToShow.contains(event.target) && elementToShow.style.display === 'block') {
+                    elementToShow.style.display = 'none';
+                    overlay.style.display = 'none';
+                    searchIcon.style.display = 'block';
+                }
+            });
+        </script>
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+        </div>
+        <div class="nav-button is-hidden">
+            <a href="#button" class="nav-button"> <i>ASSOCIA-TE</i> </a>
+        </div>
+        <div class="slogan">
+            <p>#Mais Que Um Clube</p>
+        </div>
+    </div>
+
+    <div class="navbar-2">
+        <ul class="nav-menu">
+            <li class="nav-item">
+               <div class="dropbtn">UDM</div>
+                 <div class="dropdown-content">
+                    <a href="história.html">História</a>
+                    <a href="órgãossociais.html">Órgãos Sociais</a>
+                    <a href="departamentos.html">Departamentos</a>
+                    <div class="is-hidden"><a href="#">Palmarés</a></div>
+                 </div>
+            </li>
+            <li class="nav-item">
+            <a href="notícias.html" class="nav-link">notícias</a>
+            </li>
+            <div class="nav-item-empty" ></div>
+            <li class="nav-item">
+                <div class="dropbtn">futebol</div>
+                <div class="dropdown-content">
+                    <a href="séniores.html">Séniores</a>
+                    <a href="formação.html">Formação</a>
+                    <div class="is-hidden"><a href="#">Veteranos</a></div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="contactos.html" class="nav-link">contactos</a>
+            </li>
+            <li class="nav-item is-hidden">
+                <div class="dropbtn">modalidades</div>
+                <div class="dropdown-content">
+                        <a href="#">Ginástica</a>
+                        <a href="#">Zumba</a>
+                </div>
+            </li>
+            <div class="nav-item-empty" ></div>
+        </ul>
+        <div class="hamburguer">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        </div>
+    </div>
+    <script src="menu.js"></script>
+</header>
+<body>
+    <section>
+        <div class="titulo-páginas">Contactos</div>
+        <div class="texto-contactos">
+            <p><b>Morada</b> <br>
+                8375-000<br>
+                Rua Antónia Cabrita Pires, S. B. Messines, Silves</p>
+            <p><b>E-mail:</b> <br>
+            u.d.messinense@mail.telepac.pt</p>
+            <p><b>Telefone:</b> <br>
+                (+351) 967 779 321</p>
+            <p><b>Facebook:</b> <br>
+                <a href="https://pt-pt.facebook.com/uniaodesportiva.messinense/">União Desportiva Messinense</a></p>
+            <p><b>Instagram:</b> <br>
+                <a href="https://www.instagram.com/udm.1975/">udm.1975</a></p>
+        </div>
+        <div class="imagem-história-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12703.501809668833!2d-8.2968576!3d37.250662399999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1ac4a22dafb8c3%3A0x4907996c81481715!2sEst%C3%A1dio%20Municipal%20de%20S%C3%A3o%20Bartolomeu%20de%20Messines!5e0!3m2!1spt-PT!2spt!4v1706283123649!5m2!1spt-PT!2spt" width="100%" height="400px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+    <section>
+        <div class="patrocinadores">
+            <div class="patrocinadores-titulo">PATROCINADORES</div>
+            <div class="patrocinadores-slider">
+                <div class="patrocinadores-slide-track">
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-cms.png" height="35px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-freguesiademessines.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-algarvepaintstore.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-estudantina.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-frutasmartinho.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-gsbarber.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-sedibraz.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-mmdetails.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-fatinha.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-pspublicidade.png" height="45px" width="auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="seccao-rodape">
+        <div class="rodape">
+            <div class="redes-sociais">
+            <div class="facebook-botão">
+                <a href="https://pt-pt.facebook.com/uniaodesportiva.messinense/"><img src="icons/facebook.png" height="30px" alt="icon facebook" class="facebook"></a>
+            </div>
+            <div class="instagram-botão">
+                <a href="https://www.instagram.com/udm.1975/"><img src="icons/instagram.png" height="30px" alt="icon instagram" class="instagram"></a>
+            </div>
+        </div>
+        </div>
+        <div class="direitos"> 2024 © UNIÃO DESPORTIVA MESSINENSE - desenvolvido por Joana C. R.</div>
+    </footer>
+</body>
+</html>

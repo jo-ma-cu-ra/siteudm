@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <title>História da UDM</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon.ico?">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .is-hidden{
+            display: none;
+        }
+
+        .subtitulo-história{
+            color: rgba(101, 101, 101, 0.80);
+            font-family: Inter;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: normal;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            text-align: center;
+            cursor: default;
+        }
+        
+        .texto-história{
+            color: #1E1E1E;
+            font-family: Inter;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%;
+            letter-spacing: 2px;
+            width: 500px;
+            height: 385px;
+            margin-left: 12%;
+            margin-top: 100px;
+            text-indent: 25px;
+            cursor: default;
+        }
+
+        .imagem-história-container{
+            position: relative;
+            margin-top:-435px;
+            margin-left: 49%;
+            height:400px;
+            width:45%;
+            margin-bottom: 50px;
+        }
+
+        .imagem-história{
+            object-fit:cover;
+            align-self: center;
+            height:100%;
+            width:100%;
+        }
+
+        .seccao-caixa-videos{
+            display:flex ;
+            justify-content:center;
+        }
+
+        .caixa-videos{
+            width: 1000px;
+            height: 270px;
+            border-radius: 70px;
+            background: rgba(0, 144, 60, 0.75);
+            display:flex ;
+            justify-content:center;
+            margin-bottom:50px;
+            
+        }
+
+        .caixa-videos-titulo{
+            color: #FFF;
+            font-family: 'Inter',sans-serif;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-top:15px;
+            position: absolute;
+            cursor: default;
+        }
+    
+        .botao-video-1{
+            width: 300px;
+            height: 187px;
+            display:flex ;
+            justify-content:center;
+            background: rgba(30, 30, 30, 0.10);
+            position: absolute;
+            margin-left:-375px;
+            margin-top: 60px;
+            border: none;
+            align-items: center;
+        }
+
+        .botao-video-1 a{
+            position: absolute;
+        }
+
+        .botao-video-2{
+            width: 300px;
+            height: 187px;
+            display:flex ;
+            justify-content:center;
+            background: rgba(30, 30, 30, 0.10);
+            position: absolute;
+            margin-left:75px;
+            margin-top: 60px;
+            border: none;
+            align-items: center;
+        }
+
+        .botao-video-2 a{
+            position: absolute;
+        }
+
+        @media (max-width:767px) {
+            .subtitulo-história{
+                color: rgba(101, 101, 101, 0.80);
+                font-family: Inter;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: normal;
+                letter-spacing: 5px;
+                text-transform: uppercase;
+                text-align: center;
+                cursor: default;
+                padding: 0 10px;
+            }
+            .texto-história{
+                color: #1E1E1E;
+                font-family: Inter;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: 2px;
+                width: 85%;
+                height: auto;
+                margin-left: 6%;
+                margin-top: 20px;
+                text-indent: 25px;
+                cursor: default;
+                padding: 0 10px;
+            }
+            .imagem-história-container{
+                position: relative;
+                margin-top:20px;
+                margin-left: 50%;
+                transform: translateX(-50%);
+                height:400px;
+                width:80%;
+                margin-bottom: 50px;
+            }
+            .imagem-história{
+                object-fit:cover;
+                align-self: center;
+                height:100%;
+                width:100%;
+            }
+            .seccao-caixa-videos{
+                display:flex ;
+                justify-content:center;
+                position: relative;
+            }
+            .caixa-videos{
+                width: 80%;
+                height:fit-content;
+                border-radius: 40px;
+                background: rgba(0, 144, 60, 0.75);
+                display:flex ;
+                justify-content:center;
+                flex-direction: column;
+                margin-bottom:50px;
+            }
+            .caixa-videos-titulo{
+                color: #FFF;
+                font-family: 'Inter',sans-serif;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                letter-spacing: 2.5px;
+                text-transform: uppercase;
+                margin-top:10px;
+                position: relative;
+                cursor: default;
+                text-align: center;
+            }
+            .botao-video-1{
+                width: 300px;
+                height: 187px;
+                display:flex ;
+                justify-content:center;
+                background: rgba(30, 30, 30, 0.10);
+                position: relative;
+                margin-left:50%;
+                transform: translateX(-50%);
+                margin-top:20px;
+                border: none;
+                align-items: center;
+            }
+            .botao-video-1 a{
+                position: absolute;
+            }
+            .botao-video-2{
+                width: 300px;
+                height: 187px;
+                display:flex ;
+                justify-content:center;
+                background: rgba(30, 30, 30, 0.10);
+                position: relative;
+                border: none;
+                align-items: center;
+                margin-left: 0;
+                margin-left:50%;
+                transform: translateX(-50%);
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            .botao-video-2 a{
+                position: absolute;
+            }
+        }
+
+    </style>
+  </head>
+  <header>
+    <div class="navbar">
+        <button class="icon-search" id="icon-search" onclick="toggleElement()"><img src="icons/search-icon-2.png"></button>
+        <div class="search-overlay" id="search-overlay"></div>
+        <div class="search-container" id="search-container">
+            <input type="text" id="search-input" placeholder="Search...">
+            <ul id="search-results" style="display: none;"></ul>
+        </div>       
+        <script src="search.js"></script>
+        <script>
+            const showButton = document.getElementById('icon-search');
+            const elementToShow = document.getElementById('search-container');
+            const overlay = document.getElementById('search-overlay');
+            const searchIcon = document.querySelector('.icon-search img');
+        
+            // Function to toggle the search container and overlay
+            function toggleSearchContainer() {
+                if (elementToShow.style.display === 'none' || elementToShow.style.display === '') {
+                    elementToShow.style.display = 'block';
+                    overlay.style.display = 'block';
+                    searchIcon.style.display = 'none';
+                } else {
+                    elementToShow.style.display = 'none';
+                    overlay.style.display = 'none';
+                    searchIcon.style.display = 'block';
+                }
+            }
+        
+            // Add a click event listener to the 'icon-search' button
+            showButton.addEventListener('click', function (event) {
+                // Prevent the click event from propagating to the document
+                event.stopPropagation();
+                toggleSearchContainer();
+            });
+        
+            // Add a click event listener to the document to close the search container and overlay
+            document.addEventListener('click', function (event) {
+                // Check if the click target is not within the search container
+                if (!elementToShow.contains(event.target) && elementToShow.style.display === 'block') {
+                    elementToShow.style.display = 'none';
+                    overlay.style.display = 'none';
+                    searchIcon.style.display = 'block';
+                }
+            });
+        </script>
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+        </div>
+        <div class="nav-button is-hidden">
+            <a href="#button" class="nav-button"> <i>ASSOCIA-TE</i> </a>
+        </div>
+        <div class="slogan">
+            <p>#Mais Que Um Clube</p>
+        </div>
+    </div>
+
+    <div class="navbar-2">
+        <ul class="nav-menu">
+            <li class="nav-item">
+               <div class="dropbtn">UDM</div>
+                 <div class="dropdown-content">
+                    <a href="história.html">História</a>
+                    <a href="órgãossociais.html">Órgãos Sociais</a>
+                    <a href="departamentos.html">Departamentos</a>
+                    <div class="is-hidden"><a href="#">Palmarés</a></div>
+                 </div>
+            </li>
+            <li class="nav-item">
+            <a href="notícias.html" class="nav-link">notícias</a>
+            </li>
+            <div class="nav-item-empty" ></div>
+            <li class="nav-item">
+                <div class="dropbtn">futebol</div>
+                <div class="dropdown-content">
+                    <a href="séniores.html">Séniores</a>
+                    <a href="formação.html">Formação</a>
+                    <div class="is-hidden"><a href="#">Veteranos</a></div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="contactos.html" class="nav-link">contactos</a>
+            </li>
+            <li class="nav-item is-hidden">
+                <div class="dropbtn">modalidades</div>
+                <div class="dropdown-content">
+                        <a href="#">Ginástica</a>
+                        <a href="#">Zumba</a>
+                </div>
+            </li>
+            <div class="nav-item-empty" ></div>
+        </ul>
+        <div class="hamburguer">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        </div>
+    </div>
+    <script src="menu.js"></script>
+</header>
+<body>
+    <section>
+        <div class="titulo-páginas"> União desportiva messinense</div>
+        <div class="subtitulo-história">Um pequeno clube com uma grande história</div>
+        <div class="texto-história"><p>União Desportiva Messinense, também conhecida como UDM, é um clube português fundado em 1975. O clube encontra-se em São Bartolomeu de Messines e tem os seus treinos no estádio municipal. Atualmente, o seu presidente é Hélder Brás e o presidente da assembleia é Florentino Oliveira</p>
+            <p>A 25 de abril de 2008 a UDM conquistou a Taça do Algarve pela primeira vez. Dois anos depois, na época 2009-2010, alcançou o título de campeão do Algarve (AF Algarve). Esta vitória permitiu o clube a subir à 3ª Divisão Nacional.</p> 
+        </div>
+        <div class="imagem-história-container">
+            <img src="images/museu-udm-inauguração-site.jpg" class="imagem-história">
+        </div>
+    </section>
+    <section class="seccao-caixa-videos">
+        <div class="caixa-videos">
+            <div class="caixa-videos-titulo"><i>"trevialidades"</i> na tv</div>
+            <div>
+                <button class="botao-video-1">
+                    <img src="images/rtparquivo.png" height="187px" width="300px"><a href="https://arquivos.rtp.pt/conteudos/uniao-desportiva-messinense/"><img src="icons/playicon.png"></a>
+                </button>
+            </div>
+            <div>
+                <button class="botao-video-2">
+                    <img src="images/ligadosultimos.png" height="187px" width="249px"><a href="https://www.youtube.com/watch?v=yJZBo6bsP_Q&t="><img src="icons/playicon.png"></a>
+                </button>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="patrocinadores">
+            <div class="patrocinadores-titulo">PATROCINADORES</div>
+            <div class="patrocinadores-slider">
+                <div class="patrocinadores-slide-track">
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-cms.png" height="35px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-freguesiademessines.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-algarvepaintstore.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-estudantina.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-frutasmartinho.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-gsbarber.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-sedibraz.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-mmdetails.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-fatinha.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-pspublicidade.png" height="45px" width="auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="seccao-rodape">
+        <div class="rodape">
+            <div class="redes-sociais">
+            <div class="facebook-botão">
+                <a href="https://pt-pt.facebook.com/uniaodesportiva.messinense/"><img src="icons/facebook.png" height="30px" alt="icon facebook" class="facebook"></a>
+            </div>
+            <div class="instagram-botão">
+                <a href="https://www.instagram.com/udm.1975/"><img src="icons/instagram.png" height="30px" alt="icon instagram" class="instagram"></a>
+            </div>
+        </div>
+        </div>
+        <div class="direitos"> 2024 © UNIÃO DESPORTIVA MESSINENSE - desenvolvido por Joana C. R.</div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <title>Sub12</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon.ico?">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .is-hidden{
+            display: none;
+        }
+
+        .séniores-carrossel {
+            position: relative;
+            height: 300px;
+            width:40%;
+            margin: 20px 10%;
+        }
+
+        .séniores-carrossel__image {
+            width:100%;
+            height:100%;
+            object-fit: cover;
+            object-position:center;
+        }
+
+        .séniores-carrossel__track-container {
+            height:100%;
+            position:relative;
+            overflow: hidden;
+            
+        }
+
+        .séniores-carrossel__track{
+            padding: 0;
+            margin:0;
+            list-style: none;
+            position: relative;
+            height: 100%;
+            transition: transform 500ms ease-in-out;
+        }
+
+        .séniores-carrossel__slide{
+            position:absolute;
+            top:0;
+            bottom:0;
+            width:100%;
+        }
+
+        .séniores-carrossel__botão{
+            position:absolute;
+            top:50%;
+            transform: translateY(-50%);
+            background: rgb(225, 225, 225,0.10);
+            border: 0;
+            cursor:pointer;
+            height:100%;
+        }
+
+
+        .séniores-carrossel__botão--esquerda{
+            left: 0px;
+            color: #fff;
+        }
+
+        .séniores-carrossel__botão--direita{
+            right:0px;
+            color: #fff;
+        }
+
+        .séniores-carrossel__nav{
+            display:flex;
+            justify-content:center;
+            padding:10px 0;
+            margin-top: -40px;
+            position: relative;
+        }
+
+        .séniores-carrossel__indicator{
+            border:0;
+            border-radius:50%;
+            width:15px;
+            height:15px;
+            background:rgba(255, 255, 255, 0.5);
+            margin: 0 12px;
+            cursor: pointer;
+        }
+
+        .séniores-carrossel__indicator.séniores-slide-atual {
+            background: rgb(255, 255, 255);
+        }
+    
+        .equipa-técnica{
+            height:300px;
+            width:37.5%;
+            border-radius: 20px;
+            position: absolute;
+            margin-top: -320px;
+            margin-left: 52%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            cursor: default;
+            background-color: rgb(225, 225, 225, 0.2);
+        }
+        .equipa-técnica-titulo{
+            color: #1E1E1E;
+            font-family: 'Inter',sans-serif;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            font-size:20px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
+
+        .equipa-técnica-faixa{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .equipa-técnica-cartão{
+            Width: 158px;
+            height:240px;
+            background-color: rgb(225, 225, 225, 0.85);
+            border-radius: 10px;
+            margin-top: 10px;
+            margin-right: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .equipa-técnica-cartão:last-child{
+            margin-right: 0;
+        }
+
+        .equipa-técnica-nome{
+            color: #1E1E1E;
+            font-family: 'Inter',sans-serif;
+            font-weight: 600;
+            margin-top: 5px;
+            font-size:16px;
+            position: relative;
+        } 
+        .equipa-técnica-cargo{
+            color: #1E1E1E;
+            font-family: 'Inter',sans-serif;
+            font-weight: normal;
+            margin-top: 5px;
+            font-size:14px;
+            position: relative;
+        } 
+
+        .equipa-técnica-img{
+            height:152px;
+            width:128px;
+            object-fit: cover;
+            position: relative;
+            margin-bottom: 5px;
+        }  
+
+        .equipa-cartão{
+            border-radius: 20px;
+            background: rgba(0, 144, 60, 0.85);
+            width: 180px;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 50px;
+            margin-top: 65px;
+            position: relative;
+            cursor:default;
+        }
+
+        .foto-card-foto{
+            width: 140px;
+            height: 166.25px;
+            object-fit: cover;
+            margin-top: 20px;
+        }
+
+        .equipa{
+            margin-left:100px;
+            margin-bottom: 30px;
+            position:relative;
+            display: flex;
+            justify-content: left;
+            flex-direction: row;
+            width: auto;
+            flex-wrap: wrap;
+        }
+
+        .equipa p{
+            color: #000;
+            font-family: 'Inter',sans-serif;
+            font-size: 22px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            position:absolute;
+            text-align: left;
+            cursor: default;
+        }
+
+        .equipa-cartão-texto-2{
+            color: #fff;
+            font-family: 'Inter',sans-serif;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            margin-top: 10px;
+            text-align: center;
+            cursor: default;
+            text-transform:capitalize;
+            letter-spacing: 1.2px;
+            width:90%;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width:767px) {
+            .séniores-carrossel {
+                position: relative;
+                height: 440px;
+                width:85%;
+                margin: 20px 50%;
+                transform: translateX(-50%);
+            }
+            .séniores-carrossel__image {
+                width:100%;
+                height:100%;
+                object-fit: cover;
+                object-position:top;
+            }
+            .séniores-carrossel__track-container {
+                height:100%;
+                position:relative;
+                overflow: hidden;
+            }
+            .séniores-carrossel__track{
+                padding: 0;
+                margin:0;
+                list-style: none;
+                position: relative;
+                height: 100%;
+                transition: transform 500ms ease-in-out;
+            }
+            .séniores-carrossel__slide{
+                position:absolute;
+                top:0;
+                bottom:0;
+                width:100%;
+            }
+            .séniores-carrossel__botão{
+                position:absolute;
+                top:50%;
+                transform: translateY(-50%);
+                background: rgb(225, 225, 225,0.10);
+                border: 0;
+                cursor:pointer;
+                height:100%;
+            }
+            .séniores-carrossel__botão--esquerda{
+                left: 0px;
+                color: #fff;
+            }
+            .séniores-carrossel__botão--direita{
+                right:0px;
+                color: #fff;
+            }
+            .séniores-carrossel__nav{
+                display:flex;
+                justify-content:center;
+                padding:10px 0;
+                margin-top: -40px;
+                position: relative;
+            }
+            .séniores-carrossel__indicator{
+                border:0;
+                border-radius:50%;
+                width:15px;
+                height:15px;
+                background:rgba(255, 255, 255, 0.5);
+                margin: 0 12px;
+                cursor: pointer;
+            }
+            .séniores-carrossel__indicator.séniores-slide-atual {
+                background: rgb(255, 255, 255);
+            }
+            .equipa-técnica{
+                background-color: rgba(225, 225, 225, 0.3);
+                height:fit-content;
+                width:70%;
+                padding:20px;
+                border-radius: 20px;
+                position: relative;
+                margin-top: 0px;
+                margin-left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                cursor: default;
+                flex-wrap: wrap;
+            }
+            .equipa-técnica-titulo{
+                color: #1E1E1E;
+                font-family: 'Inter',sans-serif;
+                font-weight: 700;
+                text-align: center;
+                padding: 5px 10px;
+                padding-bottom: 5px;
+                font-size:18px;
+                text-transform: uppercase;
+                letter-spacing: 1.2px;
+            }
+            .equipa-técnica-cartão:last-child{
+                margin-right: 0px;
+            }    
+            .equipa{
+                margin-left:6%;
+                margin-bottom: 30px;
+                position:relative;
+                display: flex;
+                justify-content: left;
+                flex-direction: row;
+                width: auto;
+                flex-wrap: wrap;
+            }
+            .equipa p{
+                color: #000;
+                font-family: 'Inter',sans-serif;
+                font-size: 22px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                position:absolute;
+                text-align: left;
+                cursor: default;
+            }
+            .equipa .equipa-cartão{
+                border-radius: 20px;
+                background: rgba(0, 144, 60, 0.85);
+                width: 160px;
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-right: 28px;
+                margin-top: 65px;
+                position: relative;
+                cursor:default;
+            }
+            .equipa .equipa-cartão:last-child{
+                margin-bottom: 10px;
+            }
+            .equipa .equipa-cartão:nth-last-child(2){
+                margin-bottom: 10px;
+            }
+            .foto-card-foto{
+                width: 140px;
+                height: 166.25px;
+                object-fit: cover;
+            }
+            .equipa-cartão-texto-2{
+                color: #fff;
+                font-family: 'Inter',sans-serif;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                margin-top: 10px;
+                text-align: center;
+                cursor: default;
+                text-transform: uppercase;
+                letter-spacing: 1.2px;
+            }           
+        }
+    </style>
+  </head>
+  <header>
+    <div class="navbar">
+        <button class="icon-search" id="icon-search" onclick="toggleElement()"><img src="icons/search-icon-2.png"></button>
+        <div class="search-overlay" id="search-overlay"></div>
+        <div class="search-container" id="search-container">
+            <input type="text" id="search-input" placeholder="Search...">
+            <ul id="search-results" style="display: none;"></ul>
+        </div>       
+        <script src="search.js"></script>
+        <script>
+            const showButton = document.getElementById('icon-search');
+            const elementToShow = document.getElementById('search-container');
+            const overlay = document.getElementById('search-overlay');
+            const searchIcon = document.querySelector('.icon-search img');
+        
+            // Function to toggle the search container and overlay
+            function toggleSearchContainer() {
+                if (elementToShow.style.display === 'none' || elementToShow.style.display === '') {
+                    elementToShow.style.display = 'block';
+                    overlay.style.display = 'block';
+                    searchIcon.style.display = 'none';
+                } else {
+                    elementToShow.style.display = 'none';
+                    overlay.style.display = 'none';
+                    searchIcon.style.display = 'block';
+                }
+            }
+        
+            // Add a click event listener to the 'icon-search' button
+            showButton.addEventListener('click', function (event) {
+                // Prevent the click event from propagating to the document
+                event.stopPropagation();
+                toggleSearchContainer();
+            });
+        
+            // Add a click event listener to the document to close the search container and overlay
+            document.addEventListener('click', function (event) {
+                // Check if the click target is not within the search container
+                if (!elementToShow.contains(event.target) && elementToShow.style.display === 'block') {
+                    elementToShow.style.display = 'none';
+                    overlay.style.display = 'none';
+                    searchIcon.style.display = 'block';
+                }
+            });
+        </script>
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+        </div>
+        <div class="nav-button is-hidden">
+            <a href="sócios.html" class="nav-button"><i>ASSOCIA-TE</i> </a>
+        </div>
+        <div class="slogan">
+            <p>#Mais Que Um Clube</p>
+        </div>
+    </div>
+
+    <div class="navbar-2">
+        <ul class="nav-menu">
+            <li class="nav-item">
+               <div class="dropbtn">UDM</div>
+                 <div class="dropdown-content">
+                    <a href="história.html">História</a>
+                    <a href="órgãossociais.html">Órgãos Sociais</a>
+                    <a href="departamentos.html">Departamentos</a>
+                    <div class="is-hidden"><a href="#">Palmarés</a></div>
+                 </div>
+            </li>
+            <li class="nav-item">
+            <a href="notícias.html" class="nav-link">notícias</a>
+            </li>
+            <div class="nav-item-empty" ></div>
+            <li class="nav-item">
+                <div class="dropbtn">futebol</div>
+                <div class="dropdown-content">
+                    <a href="séniores.html">Séniores</a>
+                    <a href="formação.html">Formação</a>
+                    <div class="is-hidden"><a href="#">Veteranos</a></div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="contactos.html" class="nav-link">contactos</a>
+            </li>
+            <li class="nav-item is-hidden">
+                <div class="dropbtn">modalidades</div>
+                <div class="dropdown-content">
+                        <a href="#">Ginástica</a>
+                        <a href="#">Zumba</a>
+                </div>
+            </li>
+            <div class="nav-item-empty" ></div>
+        </ul>
+        <div class="hamburguer">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        </div>
+    </div>
+    <script src="menu.js"></script>
+</header>
+<body>
+    <section>
+        <div class="titulo-páginas">Infantis Sub12</div>
+        <div class="séniores-carrossel" >
+            <div class="séniores-carrossel__track-container">
+              <ul class="séniores-carrossel__track">
+                <li class="séniores-carrossel__slide séniores-slide-atual">
+                  <img class="séniores-carrossel__image" src="jogos/Sub 12/IMG_0388_edited.jpg"  alt="">
+                </li>
+                <li class="séniores-carrossel__slide">
+                  <img class="séniores-carrossel__image" src="jogos/Sub 12/IMG_0669_edited.jpg" alt="">
+                </li>
+                <li class="séniores-carrossel__slide">
+                  <img class="séniores-carrossel__image" src="jogos/Sub 12/IMG_0547_edited.jpg"  alt="">
+                </li>
+                <li class="séniores-carrossel__slide">
+                  <img class="séniores-carrossel__image" src="jogos/Sub 12/IMG_0456_edited.jpg"  alt="">
+                </li>
+                <li class="séniores-carrossel__slide">
+                    <img class="séniores-carrossel__image" src="jogos/Sub 12/IMG_0416_edited.jpg" alt="">
+                </li>
+                <li class="séniores-carrossel__slide">
+                    <img class="séniores-carrossel__image" src="jogos/Sub 12/IMG_0562_edited.jpg" alt="">
+                </li>
+              </ul>
+            </div>
+            <button class="séniores-carrossel__botão séniores-carrossel__botão--esquerda is-hidden"><img src="icons/seta-esquerda.png" height="40px"></button>
+            <button class="séniores-carrossel__botão séniores-carrossel__botão--direita"><img src="icons/seta-direita.png" height="40px"></button>
+            <div class="séniores-carrossel__nav">
+              <button class="séniores-carrossel__indicator séniores-slide-atual"></button>
+              <button class="séniores-carrossel__indicator"></button>
+              <button class="séniores-carrossel__indicator"></button>
+              <button class="séniores-carrossel__indicator"></button>
+              <button class="séniores-carrossel__indicator"></button>
+              <button class="séniores-carrossel__indicator"></button>
+            </div>
+        </div>
+        <script>
+            const track = document.querySelector('.séniores-carrossel__track');
+            const slides = Array.from(track.children);
+            const nextButton = document.querySelector('.séniores-carrossel__botão--direita');
+            const prevButton = document.querySelector('.séniores-carrossel__botão--esquerda');
+            const dotsNav = document.querySelector('.séniores-carrossel__nav');
+            const dots = Array.from(dotsNav.children);
+    
+            const slideWidth = slides[0].getBoundingClientRect().width;
+    
+            const setSlidePosition = (slide, index) => {
+                slide.style.left = slideWidth * index + 'px';
+            };
+            slides.forEach(setSlidePosition);
+    
+            const moveToSlide = (track, currentSlide, targetSlide) => {
+                track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
+                currentSlide.classList.remove('séniores-slide-atual');
+                targetSlide.classList.add('séniores-slide-atual');
+            };
+    
+            const updateDots = (currentDot, targetDot) => {
+                currentDot.classList.remove('séniores-slide-atual');
+                targetDot.classList.add('séniores-slide-atual');
+            };
+    
+            const hideShowArrows = (slides, prevButton, nextButton, targetIndex) => {
+                if (targetIndex === 0) {
+                    prevButton.classList.add('is-hidden');
+                    nextButton.classList.remove('is-hidden');
+                } else if (targetIndex === slides.length - 1) {
+                    prevButton.classList.remove('is-hidden');
+                    nextButton.classList.add('is-hidden');
+                } else {
+                    prevButton.classList.remove('is-hidden');
+                    nextButton.classList.remove('is-hidden');
+                }
+            };
+    
+            let slideInterval = setInterval(moveToNextSlide, 3000);
+    
+            function moveToNextSlide() {
+                const currentSlide = track.querySelector('.séniores-slide-atual');
+                const currentDot = dotsNav.querySelector('.séniores-slide-atual');
+                const currentIndex = slides.findIndex(slide => slide === currentSlide);
+                const nextIndex = (currentIndex + 1) % slides.length;
+                const nextSlide = slides[nextIndex];
+                const nextDot = dots[nextIndex];
+    
+                moveToSlide(track, currentSlide, nextSlide);
+                updateDots(currentDot, nextDot);
+                hideShowArrows(slides, prevButton, nextButton, nextIndex);
+            }
+    
+            track.addEventListener('mouseover', () => {
+                clearInterval(slideInterval);
+            });
+    
+            track.addEventListener('mouseout', () => {
+                slideInterval = setInterval(moveToNextSlide, 3000);
+            });
+    
+            prevButton.addEventListener('click', () => {
+                const currentSlide = track.querySelector('.séniores-slide-atual');
+                const prevSlide = currentSlide.previousElementSibling;
+                const currentDot = dotsNav.querySelector('.séniores-slide-atual');
+                const prevDot = currentDot.previousElementSibling;
+                const prevIndex = slides.findIndex(slide => slide === prevSlide);
+    
+                moveToSlide(track, currentSlide, prevSlide);
+                updateDots(currentDot, prevDot);
+                hideShowArrows(slides, prevButton, nextButton, prevIndex);
+            });
+    
+            nextButton.addEventListener('click', () => {
+                moveToNextSlide();
+            });
+    
+            dotsNav.addEventListener('click', e => {
+                const targetDot = e.target.closest('button');
+                if (!targetDot) return;
+    
+                const currentSlide = track.querySelector('.séniores-slide-atual');
+                const currentDot = dotsNav.querySelector('.séniores-slide-atual');
+                const targetIndex = dots.findIndex(dot => dot === targetDot);
+                const targetSlide = slides[targetIndex];
+    
+                moveToSlide(track, currentSlide, targetSlide);
+                updateDots(currentDot, targetDot);
+                hideShowArrows(slides, prevButton, nextButton, targetIndex);
+            });
+        </script>
+    </section>
+    <section>
+        <div class="equipa-técnica">
+            <div class="equipa-técnica-titulo">Equipa técnica - Infantis sub12</div>
+            <div class="equipa-técnica-faixa">
+                <div class="equipa-técnica-cartão">
+                    <img src="Treinadores/Mário Sebastião.jpeg" class="equipa-técnica-img">
+                    <div class="equipa-técnica-nome">Mário Sebastião</div>
+                    <div class="equipa-técnica-cargo">Treinador principal</div>
+                </div>
+                <div class="equipa-técnica-cartão">
+                    <img src="Treinadores/Francisco Walker.jpeg" class="equipa-técnica-img">
+                    <div class="equipa-técnica-nome">Francisco Walker</div>
+                    <div class="equipa-técnica-cargo">Treinador adjunto</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="equipa"><p>Equipa</p>
+            <div class="equipa-cartão">
+                <img src="jogadores/Infantis 12/Dinis Carmo.jpeg" class="foto-card-foto">
+                <div class="equipa-cartão-texto-2">Dinis Carmo<br></div>
+            </div>
+            <div class="equipa-cartão">
+                <img src="jogadores/Infantis 12/Henrique Silva.jpeg" class="foto-card-foto">
+                <div class="equipa-cartão-texto-2">Henrique Silva<br></div>
+            </div>
+            <div class="equipa-cartão">
+                <img src="jogadores/Infantis 12/David.jpeg" class="foto-card-foto">
+                <div class="equipa-cartão-texto-2">David Yin<br></div>
+            </div>
+            <div class="equipa-cartão">
+                <img src="images/semfoto.png" class="foto-card-foto">
+                <div class="equipa-cartão-texto-2">Jacob Pratley<br></div>
+            </div>
+            <div class="equipa-cartão">
+                <img src="images/semfoto.png" class="foto-card-foto">
+                <div class="equipa-cartão-texto-2">Santiago Lourenço<br></div>
+            </div>
+            <div class="equipa-cartão">
+                <img src="images/semfoto.png" class="foto-card-foto">
+                <div class="equipa-cartão-texto-2">Santiago Alves<br></div>
+            </div>
+            <div class="equipa-cartão">
+                <img src="images/semfoto.png" class="foto-card-foto">
+                <div class="equipa-cartão-texto-2">Santiago Catarino<br></div>
+            </div>
+            <div class="equipa-cartão">
+                <img src="images/semfoto.png" class="foto-card-foto">
+                <div class="equipa-cartão-texto-2">Vasco Cid<br></div>
+            </div>
+            <div class="equipa-cartão">
+                <img src="images/semfoto.png" class="foto-card-foto">
+                <div class="equipa-cartão-texto-2">Guilherme Calado<br></div>
+            </div>
+            <div class="equipa-cartão">
+                <img src="jogadores/Infantis 12/Duarte Parrado.jpeg" class="foto-card-foto">
+                <div class="equipa-cartão-texto-2">Duarte Parrado<br></div>
+            </div>
+            <div class="equipa-cartão">
+                <img src="jogadores/Infantis 12/Gustavo Barrange.jpeg" class="foto-card-foto">
+                <div class="equipa-cartão-texto-2">Gustavo Barangé<br></div>
+            </div>
+            <div class="equipa-cartão">
+                <img src="images/semfoto.png" class="foto-card-foto">
+                <div class="equipa-cartão-texto-2">Bruno Mendes<br></div>
+            </div>
+            <div class="equipa-cartão">
+                <img src="images/semfoto.png" class="foto-card-foto">
+                <div class="equipa-cartão-texto-2">Moises Alves<br></div>
+            </div>
+            <div class="equipa-cartão">
+                <img src="images/semfoto.png" class="foto-card-foto">
+                <div class="equipa-cartão-texto-2">Henrique Lourenço<br></div>
+            </div>
+            <div class="equipa-cartão">
+                <img src="jogadores/Infantis 12/Kristian Negaelshev.jpeg" class="foto-card-foto">
+                <div class="equipa-cartão-texto-2">Kristian Nedelchev<br></div>
+            </div>
+            <div class="equipa-cartão">
+                <img src="images/semfoto.png" class="foto-card-foto">
+                <div class="equipa-cartão-texto-2">Lourenço Galrão<br></div>
+            </div>
+            <div class="equipa-cartão">
+                <img src="jogadores/Infantis 12/Gustavo Silvestre.jpeg" class="foto-card-foto">
+                <div class="equipa-cartão-texto-2">Gustavo Silvestre<br></div>
+            </div>
+            <div class="equipa-cartão">
+                <img src="jogadores/Infantis 12/Gustavo Guerreiro.jpeg" class="foto-card-foto">
+                <div class="equipa-cartão-texto-2">Gustavo Guerreiro<br></div>
+            </div>
+            <div class="equipa-cartão">
+                <img src="jogadores/Infantis 12/Martim Lopes.jpeg" class="foto-card-foto">
+                <div class="equipa-cartão-texto-2">Martim Silva<br></div>
+            </div>
+            <div class="equipa-cartão">
+                <img src="images/semfoto.png" class="foto-card-foto">
+                <div class="equipa-cartão-texto-2">Constança Silva<br></div>
+            </div>
+            <div class="equipa-cartão">
+                <img src="jogadores/Infantis 12/Duarte.jpeg" class="foto-card-foto">
+                <div class="equipa-cartão-texto-2">Duarte Mascarenhas<br></div>
+            </div>
+            <div class="equipa-cartão">
+                <img src="images/semfoto.png" class="foto-card-foto">
+                <div class="equipa-cartão-texto-2">Tomás Coelho<br></div>
+            </div>
+            <div class="equipa-cartão">
+                <img src="images/semfoto.png" class="foto-card-foto">
+                <div class="equipa-cartão-texto-2">Miguel Bica<br></div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="patrocinadores">
+            <div class="patrocinadores-titulo">PATROCINADORES</div>
+            <div class="patrocinadores-slider">
+                <div class="patrocinadores-slide-track">
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-cms.png" height="35px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-freguesiademessines.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-algarvepaintstore.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-estudantina.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-frutasmartinho.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-gsbarber.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-sedibraz.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-mmdetails.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-fatinha.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-pspublicidade.png" height="45px" width="auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="seccao-rodape">
+        <div class="rodape">
+            <div class="redes-sociais">
+            <div class="facebook-botão">
+                <a href="https://pt-pt.facebook.com/uniaodesportiva.messinense/"><img src="icons/facebook.png" height="30px" alt="icon facebook" class="facebook"></a>
+            </div>
+            <div class="instagram-botão">
+                <a href="https://www.instagram.com/udm.1975/"><img src="icons/instagram.png" height="30px" alt="icon instagram" class="instagram"></a>
+            </div>
+        </div>
+        </div>
+        <div class="direitos"> 2024 © UNIÃO DESPORTIVA MESSINENSE - desenvolvido por Joana C. R.</div>
+    </footer>
+</body>
+</html>

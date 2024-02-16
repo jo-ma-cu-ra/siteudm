@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <title>Departamentoss</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon.ico?">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .is-hidden{
+            display: none;
+        }
+
+        .texto-história{
+            color: #1E1E1E;
+            font-family: Inter;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%;
+            letter-spacing: 2px;
+            width: 500px;
+            height: 385px;
+            margin-left: 12%;
+            margin-top: 50px;
+            text-indent: 25px;
+            cursor: default;
+        }
+
+        .secções{
+            margin-left:50%;
+            margin-top: -385px;
+            margin-bottom: 50px;
+            position:relative;
+            display: flex;
+            justify-content: left;
+            flex-direction: row;
+            width: auto;
+            flex-wrap: wrap;
+        }
+
+        .foto-card{
+            border-radius: 20px;
+            background: rgba(0, 144, 60, 0.75);
+            width: 170px;
+            height: 275px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin-right: 60px;
+            margin-top: 0px;
+            position: relative;
+        }
+
+        .foto-card-foto{
+            width: 138px;
+            height: 162px;
+            object-fit: cover;
+            position: absolute;
+            margin-top: 15px;
+        }
+
+        .foto-card-cargo{
+            color: #000;
+            font-family: Inter;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            margin-top: 15px;
+            text-align: center;
+            cursor: default;
+            text-transform: uppercase;
+            position: absolute;
+            margin-top:187px;
+            width:92%;
+        }
+        .foto-card-nome{
+            color: #000;
+            font-family: Inter;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: normal;
+            margin-top: 5px;
+            text-align: center;
+            cursor: default;
+            position: absolute;
+            width: 92%;
+            margin-top:228px;
+        }
+
+        @media (max-width:767px) {
+            .subtitulo-história{
+                color: rgba(101, 101, 101, 0.80);
+                font-family: Inter;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: normal;
+                letter-spacing: 5px;
+                text-transform: uppercase;
+                text-align: center;
+                cursor: default;
+                padding: 0 10px;
+            }
+            .texto-história{
+                color: #1E1E1E;
+                font-family: Inter;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: 2px;
+                width: 85%;
+                height: auto;
+                margin-left: 6%;
+                margin-top: 20px;
+                text-indent: 25px;
+                cursor: default;
+                padding: 0 10px;
+            }
+            .imagem-história-container{
+                position: relative;
+                margin-top:20px;
+                margin-left: 50%;
+                transform: translateX(-50%);
+                height:400px;
+                width:80%;
+                margin-bottom: 50px;
+            }
+            .imagem-história{
+                object-fit:cover;
+                align-self: center;
+                height:100%;
+                width:100%;
+            }
+            .seccao-caixa-videos{
+                display:flex ;
+                justify-content:center;
+                position: relative;
+            }
+        }
+
+    </style>
+  </head>
+  <header>
+    <div class="navbar">
+        <button class="icon-search" id="icon-search" onclick="toggleElement()"><img src="icons/search-icon-2.png"></button>
+        <div class="search-overlay" id="search-overlay"></div>
+        <div class="search-container" id="search-container">
+            <input type="text" id="search-input" placeholder="Search...">
+            <ul id="search-results" style="display: none;"></ul>
+        </div>       
+        <script src="search.js"></script>
+        <script>
+            const showButton = document.getElementById('icon-search');
+            const elementToShow = document.getElementById('search-container');
+            const overlay = document.getElementById('search-overlay');
+            const searchIcon = document.querySelector('.icon-search img');
+        
+            // Function to toggle the search container and overlay
+            function toggleSearchContainer() {
+                if (elementToShow.style.display === 'none' || elementToShow.style.display === '') {
+                    elementToShow.style.display = 'block';
+                    overlay.style.display = 'block';
+                    searchIcon.style.display = 'none';
+                } else {
+                    elementToShow.style.display = 'none';
+                    overlay.style.display = 'none';
+                    searchIcon.style.display = 'block';
+                }
+            }
+        
+            // Add a click event listener to the 'icon-search' button
+            showButton.addEventListener('click', function (event) {
+                // Prevent the click event from propagating to the document
+                event.stopPropagation();
+                toggleSearchContainer();
+            });
+        
+            // Add a click event listener to the document to close the search container and overlay
+            document.addEventListener('click', function (event) {
+                // Check if the click target is not within the search container
+                if (!elementToShow.contains(event.target) && elementToShow.style.display === 'block') {
+                    elementToShow.style.display = 'none';
+                    overlay.style.display = 'none';
+                    searchIcon.style.display = 'block';
+                }
+            });
+        </script>
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+        </div>
+        <div class="nav-button is-hidden">
+            <a href="#button" class="nav-button"> <i>ASSOCIA-TE</i> </a>
+        </div>
+        <div class="slogan">
+            <p>#Mais Que Um Clube</p>
+        </div>
+    </div>
+
+    <div class="navbar-2">
+        <ul class="nav-menu">
+            <li class="nav-item">
+               <div class="dropbtn">UDM</div>
+                 <div class="dropdown-content">
+                    <a href="história.html">História</a>
+                    <a href="órgãossociais.html">Órgãos Sociais</a>
+                    <a href="nutrição.html">Departamentos</a>
+                    <div class="is-hidden"><a href="#">Palmarés</a></div>
+                 </div>
+            </li>
+            <li class="nav-item">
+            <a href="notícias.html" class="nav-link">notícias</a>
+            </li>
+            <div class="nav-item-empty" ></div>
+            <li class="nav-item">
+                <div class="dropbtn">futebol</div>
+                <div class="dropdown-content">
+                    <a href="séniores.html">Séniores</a>
+                    <a href="formação.html">Formação</a>
+                    <div class="is-hidden"><a href="#">Veteranos</a></div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="contactos.html" class="nav-link">contactos</a>
+            </li>
+            <li class="nav-item is-hidden">
+                <div class="dropbtn">modalidades</div>
+                <div class="dropdown-content">
+                        <a href="#">Ginástica</a>
+                        <a href="#">Zumba</a>
+                </div>
+            </li>
+            <div class="nav-item-empty" ></div>
+        </ul>
+        <div class="hamburguer">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        </div>
+    </div>
+    <script src="menu.js"></script>
+</header>
+<body>
+    <section>
+        <div class="titulo-páginas">Departamento de Nutrição</div>
+        <div class="subtitulo-história"></div>
+        <div class="texto-história"><p>União Desportiva Messinense, também conhecida como UDM, é um clube português fundado em 1975. O clube encontra-se em São Bartolomeu de Messines e tem os seus treinos no estádio municipal. Atualmente, o seu presidente é Hélder Brás e o presidente da assembleia é Florentino Oliveira</p>
+            <p>A 25 de abril de 2008 a UDM conquistou a Taça do Algarve pela primeira vez. Dois anos depois, na época 2009-2010, alcançou o título de campeão do Algarve (AF Algarve). Esta vitória permitiu o clube a subir à 3ª Divisão Nacional.</p> 
+        </div>
+        <div class="secções">
+            <div class="foto-card">
+                <img src="images/semfoto.png" class="foto-card-foto">
+                <div class="foto-card-cargo">PRESIDENTE</div><div class="foto-card-nome">Florentino Oliveira</div>
+            </div>
+            <div class="foto-card">
+                <img src="images/semfoto.png" class="foto-card-foto">
+                <div class="foto-card-cargo">PRESIDENTE</div><div class="foto-card-nome">Florentino Oliveira</div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="titulo-páginas">Departamento de Psicologia</div>
+        <div class="subtitulo-história"></div>
+        <div class="texto-história"><p>União Desportiva Messinense, também conhecida como UDM, é um clube português fundado em 1975. O clube encontra-se em São Bartolomeu de Messines e tem os seus treinos no estádio municipal. Atualmente, o seu presidente é Hélder Brás e o presidente da assembleia é Florentino Oliveira</p>
+            <p>A 25 de abril de 2008 a UDM conquistou a Taça do Algarve pela primeira vez. Dois anos depois, na época 2009-2010, alcançou o título de campeão do Algarve (AF Algarve). Esta vitória permitiu o clube a subir à 3ª Divisão Nacional.</p> 
+        </div>
+        <div class="secções">
+            <div class="foto-card">
+                <img src="images/semfoto.png" class="foto-card-foto">
+                <div class="foto-card-cargo">PRESIDENTE</div><div class="foto-card-nome">Florentino Oliveira</div>
+            </div>
+            <div class="foto-card">
+                <img src="images/semfoto.png" class="foto-card-foto">
+                <div class="foto-card-cargo">PRESIDENTE</div><div class="foto-card-nome">Florentino Oliveira</div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="patrocinadores">
+            <div class="patrocinadores-titulo">PATROCINADORES</div>
+            <div class="patrocinadores-slider">
+                <div class="patrocinadores-slide-track">
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-cms.png" height="35px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-freguesiademessines.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-algarvepaintstore.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-estudantina.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-frutasmartinho.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-gsbarber.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-sedibraz.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-mmdetails.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-fatinha.png" height="60px" width="auto">
+                    </div>
+                    <div class="patrocinadores-slide">
+                        <img src="images/logo-pspublicidade.png" height="45px" width="auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="seccao-rodape">
+        <div class="rodape">
+            <div class="redes-sociais">
+            <div class="facebook-botão">
+                <a href="https://pt-pt.facebook.com/uniaodesportiva.messinense/"><img src="icons/facebook.png" height="30px" alt="icon facebook" class="facebook"></a>
+            </div>
+            <div class="instagram-botão">
+                <a href="https://www.instagram.com/udm.1975/"><img src="icons/instagram.png" height="30px" alt="icon instagram" class="instagram"></a>
+            </div>
+        </div>
+        </div>
+        <div class="direitos"> 2024 © UNIÃO DESPORTIVA MESSINENSE - desenvolvido por Joana C. R.</div>
+    </footer>
+</body>
+</html>
